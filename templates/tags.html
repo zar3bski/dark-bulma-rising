@@ -1,0 +1,13 @@
+<div class="field is-grouped is-grouped-multiline">
+    {% for tag, articles in tags %}
+
+    <a href="{{ SITEURL }}/{{ tag.url }}">
+        <div class="control">
+            <div class="tags has-addons">
+                <span class="tag is-primary has-text-black">{{ tag }}</span>
+                <span class="tag is-dark">{{articles|length}}</span>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>

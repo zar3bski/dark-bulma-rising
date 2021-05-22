@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+$green: #12e01a;
+$white: #f0e9e9;
+$blue-grey: #315159;
+$darkest-blue: #243a40;
+$red: #de5050;
+$light-blue: #ade0ff;
+$orange: #ffc859;
+$dark-orange: #ffb728;
+
+$link: $green;
+$link-hover: $red;
+
+$widescreen-enabled: true;
+$fullhd-enabled: true;
+
+$body-font-size: 1.1em;
+
+$info: $dark-orange;
+$primary: $green;
+
+$body-background-color: #474647;
+$text: $white; 
+$title-color: $white; 
+$subtitle-color : $white;
+
+$text-strong: $light-blue;
+$content-table-head-cell-color: $red;
+
+$navbar-background-color: $blue-grey;
+$navbar-item-color: $white; 
+$navbar-dropdown-background-color: $blue-grey; 
+$navbar-box-shadow-color: $darkest-blue;
+$navbar-item-hover-color: $orange;
+$navbar-dropdown-item-hover-color: $red;
+
+$menu-item-hover-color: $red;
+
+$tag-color:$darkest-blue;
+
+
+.codehilite{
+	background-color: $blue-grey; 
+}
+
+h2 {
+	color: $white ; 
+}
+
+$panel-heading-background-color:$blue-grey;
+$panel-heading-color:$dark-orange;
+
+$pre-background:#315159;
+$code-background: $blue-grey; 
+$code: orange;
+
+$content-blockquote-background-color:#c24121;
+
+.sticky	{
+	position: sticky;
+  	top: 30px;
+}
+
+
+$box-background-color: $blue-grey;
+
+@import "node_modules/bulma/sass/utilities/_all.sass";
+@import "node_modules/bulma/sass/base/_all.sass";
+@import "node_modules/bulma/sass/elements/button.sass";
+@import "node_modules/bulma/sass/elements/container.sass";
+@import "node_modules/bulma/sass/elements/title.sass";
+@import "node_modules/bulma/sass/form/_all.sass";
+@import "node_modules/bulma/sass/components/navbar.sass";
+@import "node_modules/bulma/sass/components/panel.sass";
+@import "node_modules/bulma/sass/layout/section.sass";
+@import "node_modules/bulma/sass/grid/columns.sass";
+@import "node_modules/bulma/sass/elements/content.sass";
+@import "node_modules/bulma/sass/elements/progress.sass";
+@import "node_modules/bulma/sass/elements/tag.sass";
+@import "node_modules/bulma/sass/elements/box.sass";

@@ -1,0 +1,15 @@
+{
+  "name": "dark_bulma_rising",
+  "version": "1.1.0",
+  "main": "src/mystyles.scss",
+  "license": "MIT",
+  "devDependencies": {
+    "bulma": "^0.7.5",
+    "node-sass": "^4.14.1"
+  },
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url dark-bulma-rising.scss static/css/dark-bulma-rising.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  }
+}
