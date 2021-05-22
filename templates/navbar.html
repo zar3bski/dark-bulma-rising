@@ -1,0 +1,57 @@
+<section class="section">
+  <nav id="navbar" class="navbar has-shadow is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <h1 class="title">{{ SITENAME }}</h1>
+      </a>
+      <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div id="navbarExampleTransparentExample" class="navbar-menu">
+      <div class="navbar-start">
+        {% if DISPLAY_PAGES_ON_MENU %}
+        {% for pg in pages %}
+        <a class="navbar-item" href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}
+
+        </a>
+        {% endfor %}
+        {% endif %}
+
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Categories
+          </a>
+          <div class="navbar-dropdown is-boxed">
+            {% for category, articles in categories %}
+            <a class="navbar-item" href="{{ SITEURL }}/{{ category.url }}">{{ category }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field">
+            {% if SOCIAL %}
+            {% for social in SOCIAL %}
+            <a data-social-network="{{social[0]}}" data-social-action="{{social[0] | lower}}"
+              data-social-target="{{social[1]}}" target="_blank" href="{{social[1]}}">
+              <img src="{{ SITEURL }}/theme/images/icons/{{social[0] | lower}}.png">
+            </a>
+            &nbsp
+            {% endfor %}
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block navclass %}active{%endblock%}
+{% block content %}
+<section id="content" class="content">
+        {% block content_title %}
+        {% endblock %}
+        <div class="container">
+                <div class="columns">
+                        <div class="column is-one-fifths">
+                                <aside class="menu sticky">
+                                        <!--tags-->
+                                        {% include 'tags.html'%}
+                                </aside>
+                        </div>
+                        <div class="column is-four-fifths">
+                                {% for article in articles_page.object_list %}
+                                <div class="box" typeof="Article">
+                                        <div class="is-flex">
+                                                <span property="datePublished">{{ article.date|strftime('%d/%m/%Y')
+                                                        }}</span>
+                                                <div class="tags">
+                                                        <span property="about"
+                                                                class="tag is-info has-text-black">{{article.category}}</span>
+                                                        {% for tag in article.tags %}
+                                                        <span property="about"
+                                                                class="tag is-primary has-text-black">{{tag}}</span>
+                                                        {% endfor %}
+                                                </div>
+                                        </div>
+                                        <header>
+                                                <h2 class="entry-title is-align-content-space-between"><a property="url"
+                                                                href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+                                                                title="Permalink to {{ article.title|striptags }}"><span
+                                                                        property="name">{{
+                                                                        article.title
+                                                                        }}</span></a></h2>
+
+                                        </header>
+                                        <div proterty="abstract" class="entry-content"> {{ article.summary }} </div>
+                                        <!-- entry-content -->
+                                </div>
+                                {% endfor %}
+                        </div>
+                </div>
+
+                {% include 'pagination.html' %}
+        </div>
+</section><!-- content -->
+{% endblock content %}

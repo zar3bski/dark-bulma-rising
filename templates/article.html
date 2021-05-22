@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+{{ article.title|striptags }}
+{% endblock %}
+{% block head %}
+{{ super() }}
+
+{% import 'translations.html' as translations with context %}
+{% if translations.entry_hreflang(article) %}
+{{ translations.entry_hreflang(article) }}
+{% endif %}
+
+{% if article.description %}
+<meta name="description" content="{{article.description}}" />
+{% endif %}
+
+{% for tag in article.tags %}
+<meta name="tags" content="{{tag}}" />
+{% endfor %}
+<meta name="keywords" content="{% for tag in article.tags %}{{tag}},{% endfor %}" />
+{% endblock %}
+{% block content %}
+
+
+<div class="columns" typeof="Article">
+  <div class="column is-one-fifth">
+    <aside class="panel sticky is-info">
+      <p class="panel-heading">
+        <span property="about">{{article.metadata.category}}</span>
+      </p>
+      <div class="panel-block">
+        <span property="datePublished">{{ article.date|strftime('%d/%m/%Y') }}</span>
+      </div>
+      <div class="panel-block">
+        {%for author in article.authors%}
+        <span property="author">{{author}}</span>
+        {%endfor%}
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="column is-four-fifth">
+    <div class="content has-text-justified has has-text-white-ter">
+      <h1><a property="url" href="{{ SITEURL }}/{{ article.url }}"
+          title="Permalink to {{ article.title|striptags }}"><span property="name">{{
+            article.title}}</span></a></h1>
+
+      <span property="articleBody">{{ article.content }}</span>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
